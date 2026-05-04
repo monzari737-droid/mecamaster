@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond blanc -->
+  <rect width="64" height="64" rx="16" fill="white"/>
+  
+  <!-- Premier M -->
+  <path d="M12 48V16L22 32L32 16V48" 
+        stroke="#FF8C42" 
+        stroke-width="4" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none"/>
+  
+  <!-- Deuxième M -->
+  <path d="M32 48V16L42 32L52 16V48" 
+        stroke="#FF6B35" 
+        stroke-width="4" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none"/>
+  
+  <!-- Point central -->
+  <circle cx="32" cy="32" r="3" fill="#FF8C42"/>
+</svg>
