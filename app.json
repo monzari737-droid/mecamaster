@@ -1,0 +1,10 @@
+{
+  "name": "mecamaster-backend",
+  "description": "Meca Master Backend API",
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "stack": "heroku-22"
+}
