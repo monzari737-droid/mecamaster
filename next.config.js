@@ -36,4 +36,17 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig);
+// Configuration pour GitHub Pages
+const nextConfigWithPWA = {
+  ...nextConfig,
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    ...nextConfig.images,
+    unoptimized: true,
+  },
+  basePath: process.env.NODE_ENV === 'production' ? '/mecamaster' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/mecamaster' : '',
+};
+
+module.exports = withPWA(nextConfigWithPWA);
