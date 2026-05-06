@@ -1,0 +1,14 @@
+node_modules/
+.next/
+src/
+public/
+package*.json
+tsconfig.json
+next.config.js
+tailwind.config.ts
+postcss.config.js
+drizzle.config.ts
+*.tsx
+*.ts
+*.css
+*.js
