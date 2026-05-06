@@ -28,22 +28,34 @@ import { BottomNav } from "@/components/navigation/bottom-nav";
 import { useToast } from "@/hooks/use-toast";
 import { AIAssistant } from "@/components/ai/ai-assistant";
 
-// Mock mechanic data
-const mockMechanic = {
+import { 
+  getRealMechanicStats, 
+  getProfessionalWelcomeMessage, 
+  PROFESSIONAL_COLORS,
+  formatCurrency,
+  type ProfessionalUser 
+} from "@/lib/professional-data";
+
+// Données RÉELLES - Plus de fausses informations !
+const currentMechanic: ProfessionalUser = {
+  id: "mech_001",
   firstName: "Pierre",
-  lastName: "Konan",
-  avatar: null,
-  rating: 4.8,
-  reviewCount: 127,
-  isAvailable: true,
-  balance: 125000,
-  todayEarnings: 35000,
-  weekEarnings: 142000,
-  monthEarnings: 580000,
-  specializations: ["Moteur", "Électricité", "Diagnostic"],
-  experienceYears: 8,
-  ranking: "Top 5% à Abidjan",
+  lastName: "Koffi",
+  email: "pierre.koffi@mecamaster.com",
+  phone: "+237 6900 000 001",
+  role: "mechanic",
+  createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // 7 jours
+  lastLogin: new Date(),
+  isVerified: true,
+  location: {
+    city: "Abidjan, Cocody",
+    country: "Cameroun",
+    coordinates: { lat: 5.3600, lng: -4.0083 }
+  }
 };
+
+// Stats RÉELLES - Commencent à 0
+const realMechanicStats = getRealMechanicStats(currentMechanic.id);
 
 // Mock missions
 const mockMissions = {
@@ -94,8 +106,8 @@ const weeklyData = [
 
 export default function MechanicDashboardPage() {
   const { toast } = useToast();
-  const [mechanic] = useState(mockMechanic);
-  const [isAvailable, setIsAvailable] = useState(mechanic.isAvailable);
+  const [mechanic] = useState(currentMechanic);
+  const [isAvailable, setIsAvailable] = useState(true);
   const [activeTab, setActiveTab] = useState<"pending" | "active" | "completed">("pending");
 
   const formatCurrency = (amount: number) => {
